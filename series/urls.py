@@ -8,3 +8,4 @@ urlpatterns = [
     path('Series/', listar_series, name="lista_series"),
     
 ]  
+

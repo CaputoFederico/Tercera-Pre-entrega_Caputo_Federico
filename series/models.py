@@ -25,4 +25,4 @@ class Otras_Series(models.Model):
     temporadas= models.IntegerField()
 
     def __str__(self):
-        return f"{self.serie}, N° de temporadas: {self.temporadas}"
+        return f"{self.sergie}, N° de temporadas: {self.temporadas}"

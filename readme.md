@@ -29,5 +29,5 @@ pip install -r requirements.txt
 
 ## Superusuario de pruebas:
 
-+ username: admin1
-+ contraseña: python2023
++ username: TrekAdmin
++ contraseña: StarTrek1701

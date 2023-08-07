@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include 
 
-from biblioteca_scfi.views import inicio, series
+from biblioteca_scfi.views import *
 
 urlpatterns = [
     path("", inicio, name="inicio"),

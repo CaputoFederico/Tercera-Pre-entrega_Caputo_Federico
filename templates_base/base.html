@@ -26,22 +26,15 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a></li>
                         
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Series</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'listar_libros' %}">Libros</a></li>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_libros' %}">Añadir libro</a></div>
-                                <li><a class="dropdown-item" href="{% url 'listar_musica' %}">Música</a></li>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_musica' %}">Añadir álbum</a></div>
+                                <li><a class="dropdown-item" href="{% url 'listar_st' %}">Star Trek</a></li>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_st' %}">Añadir Star Trek</a></div>
+                                <li><a class="dropdown-item" href="{% url 'listar_sw' %}">Star Wars</a></li>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_sw' %}">Añadir Star Wars</a></div>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clientes</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'lista_clientes' %}">Listado de clientes</a></li>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'registro_cliente' %}">Añadir cliente</a></div>
-                                <li><a class="dropdown-item" href="{% url 'enviar_consulta' %}">Contacto</a></li>
-                            </ul>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -50,8 +43,7 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Bookstore</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Libros y algo más...</p>
+                    <h1 class="display-4 fw-bolder">Biblioteca Sc-Fi</h1>
                 </div>
             </div>
         </header>
@@ -75,7 +67,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Curso de Python - Coderhouse 2023</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Curso de Python comisión 55350 - Coderhouse® 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

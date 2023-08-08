@@ -8,12 +8,12 @@ from series.models import Star_Trek, Star_Wars, Otras_Series
 
 def listar_ST(request):
     contexto = {
-        "Star Trek" : Star_Trek.objects.all()
+        "Star Trek" : Star_Trek.objects.all(),
     }
     http_response = render(
-    request=request,
-    template_name= "series/star_trek.html",
-    context=contexto,
+        request=request,
+        template_name= 'series/star_trek.html',
+        context=contexto,
     )
     return http_response 
 
@@ -41,7 +41,7 @@ def listar_OS(request):
 
 
 def add_ST(request):
-   if request.method == "POST":
+    if request.method == "POST":
        formulario1 =TrekFormulario(request.POST)
 
        if formulario1.is_valid():
@@ -54,19 +54,18 @@ def add_ST(request):
 
            url_exitosa = reverse("listar_ST")
            return redirect(url_exitosa)
-   else:
+    else:
        formulario1 = TrekFormulario()
-   
-   http_response = render(
-    request=request,
-    template_name="series/formulario_ST.html",
-    context={"formulario1": formulario1}
-   )
-   return http_response
+    http_response = render(
+        request=request,
+        template_name="series/formulario_ST.html",
+        context={"formulario1": formulario1}
+    )
+    return http_response
 
 
 def add_SW(request):
-   if request.method == "POST":
+    if request.method == "POST":
        formulario1 = WarsFormulario(request.POST)
 
        if formulario1.is_valid():
@@ -79,19 +78,19 @@ def add_SW(request):
 
            url_exitosa = reverse("listar_SW")
            return redirect(url_exitosa)
-   else:
+    else:
        formulario1 = WarsFormulario()
    
-   http_response = render(
-    request=request,
-    template_name="series/formulario_SW.html",
-    context={"formulario1": formulario1}
-   )
-   return http_response
+    http_response = render(
+        request=request,
+        template_name="series/formulario_SW.html",
+        context={"formulario1": formulario1}
+    )
+    return http_response
 
 
 def add_OS(request):
-   if request.method == "POST":
+    if request.method == "POST":
        formulario1 = OtrasFormulario(request.POST)
 
        if formulario1.is_valid():
@@ -105,27 +104,27 @@ def add_OS(request):
 
            url_exitosa = reverse("listar_OS")
            return redirect(url_exitosa)
-   else:
+    else:
        formulario1 = OtrasFormulario()
    
-   http_response = render(
-    request=request,
-    template_name="series/formulario_otras.html",
-    context={"formulario1": formulario1}
-   )
-   return http_response
+    http_response = render(
+        request=request,
+        template_name="series/formulario_otras.html",
+        context={"formulario1": formulario1}
+    )
+    return http_response
 
 def buscar_Trek(request):
-   if request.method == "POST":
+    if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
         serie = Star_Trek.objects.filter(serie=busqueda)
         contexto = {
             "series": serie,
         }
-        http_response = render(
-            request=request,
-            template_name="series/star_trek.html",
-            context=contexto,
+    http_response = render(
+        request=request,
+        template_name="series/star_trek.html",
+        context=contexto,
         )
-        return http_response
+    return http_response

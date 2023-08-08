@@ -46,10 +46,10 @@ def add_ST(request):
 
        if formulario1.is_valid():
            data = formulario1.cleaned_data
-           titulo = data["titulo"]
-           piloto = data["piloto"]
-           temporadas = data["N_temporadas"]
-           serie = Star_Trek(titulo=titulo, piloto=piloto, N_temporadas=temporadas)
+           serie = data["serie"]
+           temporadas = data["temporadas"]
+           pilot = data["pilot"]
+           serie = Star_Trek(serie=serie, temporadas=temporadas, pilot=pilot)
            serie.save()
 
            url_exitosa = reverse("listar_ST")
@@ -119,7 +119,7 @@ def buscar_Trek(request):
    if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
-        serie = Star_Trek.objects.filter(titulo__contains=busqueda)
+        serie = Star_Trek.objects.filter(serie=busqueda)
         contexto = {
             "series": serie,
         }

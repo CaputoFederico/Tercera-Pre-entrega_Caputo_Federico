@@ -5,10 +5,10 @@ class Star_Trek(models.Model):
 
     serie=models.CharField(max_length=40)
     temporadas= models.IntegerField()
-    piloto= models.IntegerField()
+    pilot= models.IntegerField()
 
     def __str__(self):
-        return f"{self.serie}, N° de temporadas: {self.temporadas}, {self.piloto}"
+        return f"{self.serie}, N° de temporadas: {self.temporadas}, {self.pilot}"
 
 
 class Star_Wars(models.Model):

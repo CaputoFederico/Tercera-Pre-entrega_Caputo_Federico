@@ -22,5 +22,5 @@ from biblioteca_scfi.views import *
 urlpatterns = [
     path("", inicio, name="inicio"),
     path('admin/', admin.site.urls),
-    path("series/",include ('series.urls')),
+    path("series/",include ("series.urls")),
 ]

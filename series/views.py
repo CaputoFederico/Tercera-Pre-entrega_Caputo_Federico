@@ -17,7 +17,7 @@ def listar_st(request):
 
 def listar_sw(request):
     contexto = {
-        "Star Wars" : star_wars.objects.all()
+        "star_wars" : star_wars.objects.all()
     }
     http_response = render(
     request=request,
@@ -28,7 +28,7 @@ def listar_sw(request):
 
 def listar_os(request):
     contexto = {
-        "Otras Series" : otras_series.objects.all()
+        "Otras_Series" : otras_series.objects.all()
     }
     http_response = render(
     request=request,
@@ -64,35 +64,34 @@ def add_st(request):
 
 def add_sw(request):
     if request.method == "POST":
-       formulario1 = WarsFormulario(request.POST)
+       formulario2 = WarsFormulario(request.POST)
 
-       if formulario1.is_valid():
-           data = formulario1.cleaned_data
-           titulo = data["titulo"]
-           año_piloto = data["piloto"]
+       if formulario2.is_valid():
+           data = formulario2.cleaned_data
+           serie = data["serie"]
            temporadas = data["temporadas"]
-           serie = star_wars(titulo=titulo, piloto=año_piloto, temporadas=temporadas)
+           pilot = data["pilot"]
+           serie = star_wars(serie=serie, temporadas=temporadas, pilot=pilot)
            serie.save()
-
            url_exitosa = reverse("listar_sw")
            return redirect(url_exitosa)
     else:
-       formulario1 = WarsFormulario()
+       formulario2 = WarsFormulario()
    
     http_response = render(
         request=request,
         template_name="series/formulario_sw.html",
-        context={"formulario1": formulario1}
+        context={"formulario2": formulario2}
     )
     return http_response
 
 
 def add_os(request):
     if request.method == "POST":
-       formulario1 = OtrasFormulario(request.POST)
+       formulario3 = OtrasFormulario(request.POST)
 
-       if formulario1.is_valid():
-           data = formulario1.cleaned_data
+       if formulario3.is_valid():
+           data = formulario3.cleaned_data
            saga = data["saga"]
            titulo = data["titulo"]
            año_piloto = data["piloto"]
@@ -103,12 +102,12 @@ def add_os(request):
            url_exitosa = reverse("listar_OS")
            return redirect(url_exitosa)
     else:
-       formulario1 = OtrasFormulario()
+       formulario3 = OtrasFormulario()
    
     http_response = render(
         request=request,
         template_name="series/formulario_otras.html",
-        context={"formulario1": formulario1}
+        context={"formulario3": formulario3}
     )
     return http_response
 
@@ -127,4 +126,19 @@ def buscar_trek(request):
         )
     return http_response
 
-# Create your views here.
+
+def buscar_wars(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        serie = star_wars.objects.filter(serie__contains=busqueda)
+        contexto = {
+            "series": serie,
+        }
+    http_response = render(
+        request=request,
+        template_name="series/star_wars.html",
+        context=contexto,
+        )
+    return http_response
+

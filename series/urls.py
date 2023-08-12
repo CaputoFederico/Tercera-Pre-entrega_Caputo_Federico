@@ -10,5 +10,6 @@ urlpatterns = [
     path('Agregarsw/', add_sw, name= 'agregar_sw'),
     path('Agregaros/', add_os, name= 'agregar_os'),
     path('buscar_trek/', buscar_trek, name='buscar_trek'),
+    path('buscar_wars/', buscar_wars, name='buscar_wars')
 ]  
 

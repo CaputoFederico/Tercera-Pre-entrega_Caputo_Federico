@@ -34,7 +34,14 @@
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_sw' %}">Añadir Star Wars</a></div>
                             </ul>
                         </li>
-                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clientes</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'lista_clientes' %}">Listado de clientes</a></li>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'registro_cliente' %}">Añadir cliente</a></div>
+                                <li><a class="dropdown-item" href="{% url 'enviar_consulta' %}">Contacto</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-Series SW - añadir
+Clientes - añadir
 {% endblock titulo %}
 
 {% block contenido %}
-<h3>Añadir una serie:</h3>
+<h3>Añadir un cliente:</h3>
 <br>
 <form method="post">
  {% csrf_token %}
- {{ formulario2.as_p }}
- {{ formulario2.errors }}
- <input type="submit" value="Registrar"/>
+ {{ formulario4.as_p }}
+ {{ formulario4.errors }}
+ <input type="submit" value="Registrar usuario"/>
 </form>
 {% endblock contenido %}

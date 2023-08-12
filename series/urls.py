@@ -3,12 +3,12 @@ from series.views import *
 
 
 urlpatterns = [
-    path('Star_Trek/', listar_ST, name= "listar_ST"),
-    path('Star_Wars/', listar_SW, name= "listar_SW"),
-    path('Otras_Series/', listar_OS, name= "listar_OS"),
-    path('AgregarST/', add_ST, name= "agregar_ST"),
-    path('AgregarSW/', add_SW, name= "agregar_SW"),
-    path('AgregarST/', add_OS, name= "agregar_OS"),
-    path("buscar_Trek/", buscar_Trek, name="buscar_Trek"),
+    path('star_trek/', listar_st, name= 'listar_st'),
+    path('star_wars/', listar_sw, name= 'listar_sw'),
+    path('otras_series/', listar_os, name= 'listar_os'),
+    path('Agregarst/', add_st, name= 'agregar_st'),
+    path('Agregarsw/', add_sw, name= 'agregar_sw'),
+    path('Agregaros/', add_os, name= 'agregar_os'),
+    path('buscar_trek/', buscar_trek, name='buscar_trek'),
 ]  
 

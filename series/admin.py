@@ -1,3 +1,6 @@
 from django.contrib import admin
+from series.models import *
 
-# Register your models here.
+admin.site.register(star_trek)
+admin.site.register(star_wars)
+admin.site.register(otras_series)

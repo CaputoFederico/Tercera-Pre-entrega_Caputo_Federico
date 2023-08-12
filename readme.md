@@ -14,7 +14,7 @@ Proyecto para simular una pagina web con informacion sobre series de ciencia fic
 + Crear una carpeta contenedora madre.
 + Abrir la consola y ubicarse en la carpeta madre con el comando:
 '''
-cd + "biblioteca_scfi"
+cd + "biblioteca_scifi"
 '''
 + Clonar el proyecto en la carpeta.
 + Ingresar en la carpeta contenedora del archivo clonado.

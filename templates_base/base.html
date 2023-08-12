@@ -28,12 +28,13 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Series</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'listar_ST' %}">Star Trek</a></li>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_ST' %}">Añadir Star Trek</a></div>
-                                <li><a class="dropdown-item" href="{% url 'listar_SW' %}">Star Wars</a></li>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_SW' %}">Añadir Star Wars</a></div>
+                                <li><a class="dropdown-item" href="{% url 'listar_st' %}">Star Trek</a></li>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_st' %}">Añadir Star Trek</a></div>
+                                <li><a class="dropdown-item" href="{% url 'listar_sw' %}">Star Wars</a></li>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'agregar_sw' %}">Añadir Star Wars</a></div>
                             </ul>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -42,11 +43,11 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Biblioteca Sc-Fi</h1>
+                    <h1 class="display-4 fw-bolder">Biblioteca Sci-Fi</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">.</p>
                 </div>
             </div>
         </header>
-        
         <section style="padding:4rem 3rem;">
             {% block contenido %}
             {% endblock contenido %}

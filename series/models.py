@@ -1,29 +1,30 @@
 from django.db import models
 
 # Create your models here.
-class Star_Trek(models.Model):
-
-    serie=models.CharField(max_length=40)
+class star_trek(models.Model):
+    serie=models.CharField(max_length=256)
     temporadas= models.IntegerField()
     pilot= models.IntegerField()
 
     def __str__(self):
-        return f"{self.serie}, N° de temporadas: {self.temporadas}, {self.pilot}"
+        return f"{self.serie}, {self.temporadas}, {self.pilot}"
 
 
-class Star_Wars(models.Model):
-
-    serie=models.CharField(max_length=40)
+class star_wars(models.Model):
+    serie=models.CharField(max_length=60)
     temporadas= models.IntegerField()
+    pilot= models.IntegerField()
 
     def __str__(self):
-        return f"{self.serie}, N° de temporadas: {self.temporadas}"
+         return f"{self.serie}, {self.temporadas}, {self.pilot}"
 
 
-class Otras_Series(models.Model):
-
-    serie=models.CharField(max_length=40)
+class otras_series(models.Model):
+    serie=models.CharField(max_length=60)
     temporadas= models.IntegerField()
+    pilot= models.IntegerField()
 
     def __str__(self):
-        return f"{self.sergie}, N° de temporadas: {self.temporadas}"
+         return f"{self.serie}, {self.temporadas}, {self.pilot}"
+
+# Create your models here.

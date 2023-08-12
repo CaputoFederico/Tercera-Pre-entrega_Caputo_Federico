@@ -2,24 +2,22 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.db.models import *
 from series.forms import *
+from series.models import *
 
-from series.models import Star_Trek, Star_Wars, Otras_Series
-
-
-def listar_ST(request):
+def listar_st(request):
     contexto = {
-        "Star Trek" : Star_Trek.objects.all(),
+        "star_trek" : star_trek.objects.all(),
     }
     http_response = render(
         request=request,
-        template_name= 'series/star_trek.html',
+        template_name= "series/star_trek.html",
         context=contexto,
     )
     return http_response 
 
-def listar_SW(request):
+def listar_sw(request):
     contexto = {
-        "Star Wars" : Star_Wars.objects.all()
+        "Star Wars" : star_wars.objects.all()
     }
     http_response = render(
     request=request,
@@ -28,9 +26,9 @@ def listar_SW(request):
     )
     return http_response 
 
-def listar_OS(request):
+def listar_os(request):
     contexto = {
-        "Otras Series" : Otras_Series.objects.all()
+        "Otras Series" : otras_series.objects.all()
     }
     http_response = render(
     request=request,
@@ -40,7 +38,7 @@ def listar_OS(request):
     return http_response 
 
 
-def add_ST(request):
+def add_st(request):
     if request.method == "POST":
        formulario1 =TrekFormulario(request.POST)
 
@@ -49,22 +47,22 @@ def add_ST(request):
            serie = data["serie"]
            temporadas = data["temporadas"]
            pilot = data["pilot"]
-           serie = Star_Trek(serie=serie, temporadas=temporadas, pilot=pilot)
+           serie = star_trek(serie=serie, temporadas=temporadas, pilot=pilot)
            serie.save()
 
-           url_exitosa = reverse("listar_ST")
+           url_exitosa = reverse("listar_st")
            return redirect(url_exitosa)
     else:
        formulario1 = TrekFormulario()
     http_response = render(
         request=request,
-        template_name="series/formulario_ST.html",
+        template_name="series/formulario_st.html",
         context={"formulario1": formulario1}
     )
     return http_response
 
 
-def add_SW(request):
+def add_sw(request):
     if request.method == "POST":
        formulario1 = WarsFormulario(request.POST)
 
@@ -72,24 +70,24 @@ def add_SW(request):
            data = formulario1.cleaned_data
            titulo = data["titulo"]
            año_piloto = data["piloto"]
-           temporadas = data["N_temporadas"]
-           serie = Star_Trek(titulo=titulo, piloto=año_piloto, N_temporadas=temporadas)
+           temporadas = data["temporadas"]
+           serie = star_wars(titulo=titulo, piloto=año_piloto, temporadas=temporadas)
            serie.save()
 
-           url_exitosa = reverse("listar_SW")
+           url_exitosa = reverse("listar_sw")
            return redirect(url_exitosa)
     else:
        formulario1 = WarsFormulario()
    
     http_response = render(
         request=request,
-        template_name="series/formulario_SW.html",
+        template_name="series/formulario_sw.html",
         context={"formulario1": formulario1}
     )
     return http_response
 
 
-def add_OS(request):
+def add_os(request):
     if request.method == "POST":
        formulario1 = OtrasFormulario(request.POST)
 
@@ -98,8 +96,8 @@ def add_OS(request):
            saga = data["saga"]
            titulo = data["titulo"]
            año_piloto = data["piloto"]
-           temporadas = data["N_temporadas"]
-           serie = Star_Trek(saga=saga, titulo=titulo, piloto=año_piloto, N_temporadas=temporadas)
+           temporadas = data["temporadas"]
+           serie = otras_series(saga=saga, titulo=titulo, piloto=año_piloto, temporadas=temporadas)
            serie.save()
 
            url_exitosa = reverse("listar_OS")
@@ -114,11 +112,11 @@ def add_OS(request):
     )
     return http_response
 
-def buscar_Trek(request):
+def buscar_trek(request):
     if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
-        serie = Star_Trek.objects.filter(serie=busqueda)
+        serie = star_trek.objects.filter(serie__contains=busqueda)
         contexto = {
             "series": serie,
         }
@@ -128,3 +126,5 @@ def buscar_Trek(request):
         context=contexto,
         )
     return http_response
+
+# Create your views here.

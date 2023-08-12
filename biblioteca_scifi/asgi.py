@@ -1,5 +1,5 @@
 """
-ASGI config for biblioteca_scfi project.
+ASGI config for biblioteca_scifi project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'biblioteca_scfi.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'biblioteca_scifi.settings')
 
 application = get_asgi_application()

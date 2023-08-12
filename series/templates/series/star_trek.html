@@ -6,6 +6,7 @@ Series
 
 {% block contenido %}
   <h3>Series de Star Trek:</h3>
+  <a href="{% url 'listar_st' %}">Todas las series</a>
   <br><br>
     <form action="{% url 'buscar_trek' %}" method="post">
       {% csrf_token %}
@@ -13,6 +14,7 @@ Series
       <input type="submit" value="Buscar por serie">
     </form>
   <br>
+  
   <ul>
     {% for i in star_trek %}
     <li>

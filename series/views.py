@@ -93,13 +93,13 @@ def add_os(request):
        if formulario3.is_valid():
            data = formulario3.cleaned_data
            saga = data["saga"]
-           titulo = data["titulo"]
-           año_piloto = data["piloto"]
+           serie = data["serie"]
+           pilot = data["pilot"]
            temporadas = data["temporadas"]
-           serie = otras_series(saga=saga, titulo=titulo, piloto=año_piloto, temporadas=temporadas)
+           serie = otras_series(saga=saga, serie=serie, pilot=pilot, temporadas=temporadas)
            serie.save()
 
-           url_exitosa = reverse("listar_OS")
+           url_exitosa = reverse("listar_os")
            return redirect(url_exitosa)
     else:
        formulario3 = OtrasFormulario()
@@ -115,9 +115,9 @@ def buscar_trek(request):
     if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
-        serie = star_trek.objects.filter(serie__contains=busqueda)
+        Serie = star_trek.objects.filter(serie__contains=busqueda)
         contexto = {
-            "series": serie,
+            "serie": Serie,
         }
     http_response = render(
         request=request,
@@ -142,3 +142,17 @@ def buscar_wars(request):
         )
     return http_response
 
+def buscar_os(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        serie = otras_series.objects.filter(serie__contains=busqueda)
+        contexto = {
+            "series": serie,
+        }
+    http_response = render(
+        request=request,
+        template_name="series/otras_series.html",
+        context=contexto,
+        )
+    return http_response

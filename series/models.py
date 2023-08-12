@@ -23,8 +23,9 @@ class otras_series(models.Model):
     serie=models.CharField(max_length=60)
     temporadas= models.IntegerField()
     pilot= models.IntegerField()
+    saga=models.CharField(max_length=80)
 
     def __str__(self):
-         return f"{self.serie}, {self.temporadas}, {self.pilot}"
+         return f"{self.saga},{self.serie}, {self.temporadas}, {self.pilot}"
 
 # Create your models here.
